@@ -5,8 +5,11 @@ import Main from '../views/Main'
 // 用于嵌套的路由组件
 import UserProfile from '../views/user/Profile'
 import UserList from '../views/user/List'
+import NotFound from '@/views/NotFound'
+
 Vue.use(Router);
 export default new Router({
+  // mode: 'history',
   routes: [
     {
       // 重定向到首页
@@ -34,6 +37,10 @@ export default new Router({
         {path: '/user/profile/:id', name:'UserProfile', component: UserProfile},
         {path: '/user/list/:id', name:'UserList', component: UserList, props: true}
       ]
+    },
+    {
+      path: '*',
+      component: NotFound
     }
   ]
 });
