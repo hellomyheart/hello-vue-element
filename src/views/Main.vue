@@ -29,10 +29,10 @@
             <i class="el-icon-setting" style="margin-right: 15px"></i>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>个人信息</el-dropdown-item>
-              <el-dropdown-item>退出登录</el-dropdown-item>
+              <el-dropdown-item><router-link to="/logout">退出登陆</router-link></el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-          <span>stephenshen</span>
+          <span>{{this.$store.getters.getUser.username}}</span>
         </el-header>
         <el-main>
           <router-view />

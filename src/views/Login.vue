@@ -18,9 +18,10 @@
     data(){
       return{
         form:{
-          username:'',
-          password:''
+            username:'',
+            password:''
         },
+        // 表单验证，需要在 el-form-item 元素中增加 prop 属性
         rules: {
           username:[
             {required: true, message:'请输入账号',trigger:'blur'},
@@ -36,6 +37,11 @@
       login: function (formName) {
         this.$refs[formName].validate((valid) =>{
           if (valid) {
+            sessionStorage.setItem("isLogin","true");
+            //有两个form,要用this.form
+            console.log("asyn");
+            this.$store.dispatch("asyncUpdateUser",this.form);
+
             this.$router.push("/main");
           }
           else {
