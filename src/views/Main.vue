@@ -7,10 +7,10 @@
             <template slot="title"><i class="el-icon-caret-right"></i>用户管理</template>
             <el-menu-item-group>
               <el-menu-item index="1-1">
-                <router-link to="/user/profile">个人信息</router-link>
+                <router-link :to="{name: 'UserProfile', params: {id: 1}}">个人信息</router-link>
               </el-menu-item>
               <el-menu-item index="1-2">
-                <router-link to="/user/list">用户列表</router-link>
+                <router-link :to="{name: 'UserList', params: {id: 1}}">用户列表</router-link>
               </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
@@ -43,7 +43,8 @@
 </template>
 <script>
   export default {
-    name: "Main"
+    name: "Main",
+
   }
 </script>
 <style scoped >

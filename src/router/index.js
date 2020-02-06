@@ -9,16 +9,14 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      // 首页
+      // 重定向到首页
       path: '/',
-      name: 'Login',
-      component: Login
+      redirect: '/main'
     },
     {
-      // 首页
+      // 重定向到首页
       path: '/index',
-      name: 'Login',
-      component: Login
+      redirect: '/main'
     },
     {
       // 登录页
@@ -33,8 +31,8 @@ export default new Router({
       component: Main,
       // 配置嵌套路由
       children: [
-        {path: '/user/profile', component: UserProfile},
-        {path: '/user/list', component: UserList},
+        {path: '/user/profile/:id', name:'UserProfile', component: UserProfile},
+        {path: '/user/list/:id', name:'UserList', component: UserList, props: true}
       ]
     }
   ]
